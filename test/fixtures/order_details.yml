@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  issue_date: 2019-02-02 00:46:17
+  return_date: 2019-02-02 00:46:17
+  book: one
+  book_copy: one
+  user: one
+
+two:
+  issue_date: 2019-02-02 00:46:17
+  return_date: 2019-02-02 00:46:17
+  book: two
+  book_copy: two
+  user: two
