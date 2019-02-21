@@ -1,0 +1,22 @@
+.container 
+  .row.mt-5
+    .col-4
+    %h3 Sign Up 
+  .row
+    .col-4
+    .col-4
+      = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+        = f.input :name
+        = f.input :email
+        .field
+          = f.label :library, 'Library  name'
+          - if @libraries.count > 0
+            = f.select :library_id, @libraries.collect{|lib| [lib.name, lib.id]}
+          - else
+            = f.select :library_id, ['No Library available']
+        = f.input :password
+        = f.input :password_confirmation
+        = f.button :submit, 'Sign Up', class: 'btn btn-primary'
+        %br
+        = link_to 'Sign In',  new_user_session_path, class: 'btn btn-link' 
+      .col-4

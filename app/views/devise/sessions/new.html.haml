@@ -1,0 +1,20 @@
+.container 
+  .row.mt-5
+    .col-4
+    %h3 Sign In 
+  .row
+    .col-4
+    .col-4
+      = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        = f.input :email
+        = f.input :password
+        .field
+          = f.input_field :remember_me, as: :boolean
+          = f.label :remember_me
+        = f.button :submit, 'Sign In', class: 'btn btn-primary'
+    .col-4
+  .row
+    .col-4
+    .col-4
+      = render 'devise/shared/links'
+    .col-4  

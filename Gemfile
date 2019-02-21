@@ -12,6 +12,19 @@ gem 'puma', '~> 3.11'
 
 gem 'devise'
 
+gem 'haml-rails'
+
+gem 'simple_form'
+
+gem 'devise_invitable', '~> 1.7.0'
+
+group :developement do
+  gem "hpricot"
+  gem "ruby_parser"
+end
+
+gem 'bootstrap', '~> 4.2.1'
+gem 'jquery-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

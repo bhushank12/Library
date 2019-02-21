@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_01_191617) do
+ActiveRecord::Schema.define(version: 2019_02_21_111722) do
 
   create_table "book_copies", force: :cascade do |t|
     t.string "reg_number"
@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 2019_02_01_191617) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["library_id"], name: "index_books_on_library_id"
+  end
+
+  create_table "csv_imports", force: :cascade do |t|
+    t.string "name", null: false
+    t.binary "data", null: false
+    t.string "filename"
+    t.string "mime_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "libraries", force: :cascade do |t|
@@ -61,7 +70,24 @@ ActiveRecord::Schema.define(version: 2019_02_01_191617) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "role"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string "invitation_token"
+    t.datetime "invitation_created_at"
+    t.datetime "invitation_sent_at"
+    t.datetime "invitation_accepted_at"
+    t.integer "invitation_limit"
+    t.string "invited_by_type"
+    t.integer "invited_by_id"
+    t.integer "invitations_count", default: 0
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
+    t.index ["invitations_count"], name: "index_users_on_invitations_count"
+    t.index ["invited_by_id"], name: "index_users_on_invited_by_id"
+    t.index ["invited_by_type", "invited_by_id"], name: "index_users_on_invited_by_type_and_invited_by_id"
     t.index ["library_id"], name: "index_users_on_library_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

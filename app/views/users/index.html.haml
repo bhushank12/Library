@@ -1,0 +1,46 @@
+- if user_signed_in?
+  .background-image
+- else
+  .background-image
+    %br/
+    .container-fluid
+      .row
+        .col-10
+        .col-1
+          %a.about{href: "#about"} About
+        .col-1
+          %a.contact{:href => "#contact"} Contact
+    %div{:style => "margin-bottom: 250px;"}
+    %div{:style => "text-align: center;"}
+      %h1.index-heading
+        Getting Started
+      %br/
+      %div
+        %button.btn.btn-primary
+          = link_to "Sign In", new_user_session_path, class: "sign-link"
+        %button.btn.btn-primary
+          = link_to "Sign Up", new_user_registration_path, class: "sign-link"
+  %br/
+  %br/
+  %h1#about.about-heading ABOUT
+  %br/
+  %br/
+  %div
+    .container.index-about-section
+      %br/
+      .row
+        .col-xl-6
+          %img{:height => "400px", :src => "/assets/about.jpg", :width => "500px"}/
+        .col-xl-6
+          %p.text-justify
+            Library at Melk Abbey in Austria The Halifax Central Library, a modern city library. A library is a collection of sources of information and similar resources, made accessible to a defined community for reference or borrowing.It provides physical or digital access to material, and may be a physical building or room, or a virtual space, or both.A library's collection can include books, periodicals, newspapers, manuscripts, films, maps, prints, documents, microform, CDs, cassettes, videotapes, DVDs, Blu-ray Discs, e-books, audiobooks, databases, and other formats. Libraries range in size from a few shelves of books to several million items.
+            %br/
+            The first libraries consisted of archives of the earliest form of writing the clay tablets in cuneiform script discovered in Sumer, some dating back to 2600 BC. Private or personal libraries made up of written books appeared in classical Greece in the 5th century BC. In the 6th century, at the very close of the Classical period, the great libraries of the Mediterranean world remained those of Constantinople and Alexandria.
+      %br/
+  %br/
+  %br/
+  %h1#contact.contact-heading CONTACT-US
+  .container-fluid
+    .row
+      %h1
+      

@@ -1,0 +1,24 @@
+.container 
+  .row.mt-4.mb-3
+    .col-7
+      %h3 Listing Libraries
+    .col-5
+      = link_to 'Import from CSV',new_csv_import_path, class: 'btn btn-md btn-primary'
+      = link_to 'Create Library', new_library_path , class: 'btn btn-md btn-primary'
+  %table.table.table-bordered.table-hover
+    %thead
+      %tr 
+        %th Name
+        %th Location
+        %th Number of User
+        %th Actions 
+    %tbody
+      - @libraries.each do |library|
+        %tr 
+          %td= library.name
+          %td= library.location
+          %td
+          %td
+            =link_to 'Edit', edit_library_path(library) , class: 'btn btn-sm btn-primary'
+            =link_to 'Destroy', library_path(library), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' 
+            =link_to 'Users', library_users_path(library), class: 'btn btn-sm btn-primary'

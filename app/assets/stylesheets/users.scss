@@ -1,0 +1,55 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.background-image
+{
+  background-image: image-url('home.jpeg');
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  height: 1000px;
+}
+.sign-link
+{
+  color: white;
+  text-decoration: none !important;
+}
+.sign-link:hover
+{
+  color: white; 
+}
+.contact
+{
+  color: white;
+  font-size: 20px;
+  text-decoration: none !important;
+}
+.about
+{
+  color: white;
+  font-size: 20px;
+  text-decoration: none !important;
+}
+.about:hover
+{
+  color: lightblue;
+}
+
+.contact:hover
+{
+  color: lightblue;
+}
+
+.index-heading
+{
+  font-size: 80px;
+  color: white;
+}
+.about-heading
+{
+  text-align: center;
+}
+.contact-heading
+{
+  text-align: center;
+}

@@ -1,0 +1,5 @@
+= simple_form_for @library do |f|
+  = f.input :name
+  = f.input :location
+  = f.button :submit, 'Edit Library', class: 'btn btn-sm btn-success'
+  = link_to 'Back', libraries_path, class: 'btn btn-sm btn-dark'
