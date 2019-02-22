@@ -1,5 +1,6 @@
 class User < ApplicationRecord
 
+  validates :name, presence: true
 	belongs_to :library, optional: true
 	has_many :order_details
 

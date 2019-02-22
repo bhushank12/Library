@@ -1,11 +1,20 @@
 .container
-  %table.table.table-bordered.table-hover
-    %thead
-      %tr 
-        %th Email
-        %th Name 
-    %tbody
-      - @users.each do |user|
+  - if @users.count>0
+    %table.table.table-bordered.table-hover
+      %thead
         %tr 
-          %td= user.email
-          %td= user.name
+          %th Email
+          %th Name 
+      %tbody
+        - @users.each do |user|
+          %tr 
+            %td= user.email
+            %td= user.name
+  - else
+    .row
+      .col-4
+      .col-4 
+        = 'No user registered for this library'
+      .col-4
+    %br
+  =link_to 'Back', libraries_path, class: 'btn btn-primary'

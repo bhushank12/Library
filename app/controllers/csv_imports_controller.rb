@@ -10,11 +10,11 @@ class CsvImportsController < ApplicationController
   end
 
   def create
-    @csv_import = CsvFile.new(csv_file_params) do |t|
-      if params[:csv_file][:data]
-        t.data = params[:csv_file].read
-        t.filename = params[:csv_file][:data].original_filename
-        t.mime_type = params[:csv_file][:data].content_type
+    @csv_import = CsvImport.new(csv_file_params) do |t|
+      if params[:csv_import][:data]
+        t.data = params[:csv_import][:data].read
+        t.filename = params[:csv_import][:data].original_filename
+        t.mime_type = params[:csv_import][:data].content_type
       end
     end
 
@@ -31,5 +31,9 @@ class CsvImportsController < ApplicationController
     @csv_import = CsvImport.find(params[:id])
     @csv_import.destroy
     redirect_to csv_imports_path
+  end
+  private
+  def csv_file_params
+    params.require(:csv_import).permit(:name, :data)
   end
 end

@@ -17,7 +17,7 @@
         %tr 
           %td= library.name
           %td= library.location
-          %td
+          %td= library.users.count
           %td
             =link_to 'Edit', edit_library_path(library) , class: 'btn btn-sm btn-primary'
             =link_to 'Destroy', library_path(library), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' 
